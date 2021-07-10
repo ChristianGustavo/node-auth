@@ -3,7 +3,7 @@ A Node application built with NodeJs, MongoDB to manage login
 
 
 ### TODO Tasks
-- [ ] User .env for secrets and port
+- [X] User .env for secrets and port
 - [ ] Connect with Mongodb
 - [ ] Create Schema in Mongodb
 - [ ] GET Users from Mongodb
