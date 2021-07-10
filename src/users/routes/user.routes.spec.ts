@@ -14,8 +14,8 @@ describe('UserRoutes', () => {
   })
 
   it('should call /users and retrieve all users', async () => {
-    const users = await request.get('/users').then((res) => res);
-    expect(users).toBeDefined();
+    const response = await request.get('/users').then((res) => res);
+    expect(response.body).toBeDefined();
   });
 
 });

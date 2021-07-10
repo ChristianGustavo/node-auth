@@ -1,6 +1,7 @@
-import { Application, Request, Response } from 'express';
+import { Application } from 'express';
 
-import BaseRoutes from './../../shared/base.routes';
+import userController from '../controllers/user.controller';
+import BaseRoutes from '../../shared/routes/base.routes';
 
 export default class UserRoutes extends BaseRoutes {
   constructor(
@@ -13,15 +14,7 @@ export default class UserRoutes extends BaseRoutes {
   registerRoutes(): Application {
     this.app.route('/users')
       .get([
-        (req: Request, res: Response) => {
-          res.status(200).json([
-            {
-              _id: 'a1b2c3d4f5g6h7i8j9k0',
-              email: 'chris@mail.com',
-              firstName: 'Christian',
-            },
-          ]);
-        },
+        userController.getAll
       ]);
 
     return this.app;

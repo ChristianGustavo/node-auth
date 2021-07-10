@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 
-import BaseRoutes from './shared/base.routes';
+import BaseRoutes from './shared/routes/base.routes';
 import UserRoutes from './users/routes/user.routes';
 
 class App {
