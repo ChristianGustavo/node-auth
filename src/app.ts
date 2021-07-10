@@ -4,6 +4,9 @@ import BaseRoutes from './shared/routes/base.routes';
 import UserRoutes from './users/routes/user.routes';
 
 class App {
+
+  private readonly port = process.env.PORT || 3000;
+
   constructor(
     private app: Application,
     private routes: BaseRoutes[]
@@ -16,8 +19,8 @@ class App {
   }
 
   startServerListening() {
-    return this.app.listen(3000, () => {
-      console.log('Listening on port 3000');
+    return this.app.listen(this.port, () => {
+      console.log(`Listening on port ${this.port}`);
     });
   }
 }
