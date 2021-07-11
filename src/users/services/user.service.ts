@@ -1,10 +1,10 @@
-import BaseDAO from '../../shared/dao/base.dao';
+import BaseRepository from '../../shared/repository/base.repository';
 import { User } from '../models/user.model';
 
 export class UserService {
 
   constructor(
-    protected dao: BaseDAO<User>
+    protected dao: BaseRepository<User>
   ) {}
 
   findAll(): User[] {

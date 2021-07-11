@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 
-import userMemoryDao from '../dao/user.memory.dao';
+import userMemoryRepository from '../repository/user.memory.repository';
 import { UserService } from './../services/user.service';
 
 class UsersController {
 
-  private readonly userService = new UserService(userMemoryDao);
+  private readonly userService = new UserService(userMemoryRepository);
 
   getAll = (
     req: Request,

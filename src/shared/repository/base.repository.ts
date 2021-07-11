@@ -1,4 +1,4 @@
-export default abstract class BaseDAO<T> {
+export default abstract class BaseRepository<T> {
 
   abstract findAll(): T[];
   abstract findById(id: string): T | undefined;

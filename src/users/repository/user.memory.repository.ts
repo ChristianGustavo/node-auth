@@ -1,7 +1,7 @@
-import BaseDAO from '../../shared/dao/base.dao';
+import BaseRepository from '../../shared/repository/base.repository';
 import { User } from '../models/user.model';
 
-class UserMemoryDAO extends BaseDAO<User> {
+class UserMemoryRepository extends BaseRepository<User> {
 
   usersList: User[] = [];
 
@@ -41,4 +41,4 @@ class UserMemoryDAO extends BaseDAO<User> {
 
 }
 
-export default new UserMemoryDAO();
+export default new UserMemoryRepository();

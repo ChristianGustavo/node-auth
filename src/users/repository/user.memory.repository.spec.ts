@@ -1,5 +1,5 @@
 import { User } from '../models/user.model';
-import userMemoryDAO from './user.memory.dao';
+import userMemoryDAO from './user.memory.repository';
 
 describe('UserMemoryDAO', () => {
 
