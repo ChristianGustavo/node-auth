@@ -15,7 +15,22 @@ export default class UserRoutes extends BaseRoutes {
     this.app.route('/users')
       .get([
         userController.getAll
+      ])
+      .post([
+        userController.create
       ]);
+
+    this.app.route('/users/:id')
+      .get([
+        userController.findById
+      ])
+      .put([
+        userController.update
+      ])
+      .delete([
+        userController.delete
+      ]);
+      
 
     return this.app;
   }

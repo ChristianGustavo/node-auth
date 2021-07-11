@@ -26,5 +26,8 @@ class App {
 }
 
 const app = express();
+
+app.use(express.json());
+
 export default new App(app, [ new UserRoutes(app) ]).startServerListening();
 
