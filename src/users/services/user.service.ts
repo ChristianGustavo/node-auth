@@ -7,23 +7,23 @@ export class UserService {
     protected dao: BaseRepository<User>
   ) {}
 
-  findAll(): User[] {
+  async findAll(): Promise<User[]> {
     return this.dao.findAll();
   }
 
-  findById(id: string): User | undefined {
+  async findById(id: string): Promise<User | undefined> {
     return this.dao.findById(id);
   }
 
-  create(user: User): User {
+  async create(user: User): Promise<User> {
     return this.dao.create(user);
   }
 
-  update(id: string, user: User): User {
+  async update(id: string, user: User): Promise<User> {
     return this.dao.update(id, user);
   }
 
-  delete(id: string): void {
+  async delete(id: string): Promise<void> {
     this.dao.delete(id);
   }
 

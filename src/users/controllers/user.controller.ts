@@ -1,49 +1,50 @@
 import { Request, Response } from 'express';
 
-import userMemoryRepository from '../repository/user.memory.repository';
+import userMongoRepository from '../repository/user.mongo.repository';
 import { UserService } from './../services/user.service';
 
 class UsersController {
 
-  private readonly userService = new UserService(userMemoryRepository);
+  // private readonly userService = new UserService(userMemoryRepository); // With in memory list
+  private readonly userService = new UserService(userMongoRepository); // With MongoDB
 
-  getAll = (
+  getAll = async (
     req: Request,
     res: Response
-  ): void => {
-    const users = this.userService.findAll();
+  ): Promise<void> => {
+    const users = await this.userService.findAll();
     res.status(200).json(users);
   }
 
-  findById = (
+  findById = async (
     req: Request,
     res: Response
-  ): void => {
-    const user = this.userService.findById(req.params.id);
+  ): Promise<void> => {
+    const user = await this.userService.findById(req.params.id);
     res.status(200).json(user);
   }
 
-  create = (
+  create = async (
     req: Request,
     res: Response
-  ): void => {
-    const createdUser = this.userService.create(req.body);
+  ): Promise<void> => {
+    const createdUser = await this.userService.create(req.body);
     res.status(200).json(createdUser);
   }
 
-  update = (
+  update = async (
     req: Request,
     res: Response
-  ): void => {
-    const updatedUser = this.userService.update(req.params.id, req.body);
+  ): Promise<void> => {
+    const updatedUser = await this.userService.update(req.params.id, req.body);
     res.status(200).json(updatedUser);
   }
 
-  delete = (
+  delete = async (
     req: Request,
     res: Response
-  ): void => {
-    this.userService.delete(req.params.id);
+  ): Promise<void> => {
+    await this.userService.delete(req.params.id);
     res.status(200).json();
   }
 
